@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory, Redirect } from 'react-router-dom';
 import { HiSearch } from 'react-icons/hi';
 
 const SearchBar = ({ setQuery }) => {
@@ -6,6 +7,7 @@ const SearchBar = ({ setQuery }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setQuery(inputValue);
+    return <Redirect />;
   };
   return (
     <header>

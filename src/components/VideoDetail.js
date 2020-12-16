@@ -1,15 +1,16 @@
 import React, { useContext } from 'react';
 import { SearchContext } from '../contexts/searchContext';
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams, Redirect } from 'react-router-dom';
 import './VideoDetail.css';
 
 const VideoDetail = () => {
   const { videoId } = useParams();
-  const { push } = useHistory();
   const { videoList } = useContext(SearchContext);
+
   const video = videoList.find((v) => v.id.videoId === videoId);
+
   if (!video) {
-    push('/');
+    return <Redirect to="/" />;
   }
   const videoSrc = `https://www.youtube.com/embed/${videoId}`;
   return (

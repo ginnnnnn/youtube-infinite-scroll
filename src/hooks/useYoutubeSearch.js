@@ -26,7 +26,10 @@ export const useYoutubeSearch = (query, pageToken) => {
         cancelToken: new Axios.CancelToken((token) => (cancel = token)),
       })
       .then((res) => {
-        setVideoList((preList) => [...preList, ...res.data.items]);
+        setVideoList((preList) => [
+          ...preList,
+          ...res.data.items.filter((v) => v.id.videoId),
+        ]);
         if (res.data.nextPageToken) {
           setNextPageToken(res.data.nextPageToken);
         } else {
