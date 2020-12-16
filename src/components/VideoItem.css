@@ -1,0 +1,33 @@
+.video-item {
+  min-width: 0;
+  min-height: 0;
+  width: 30%;
+  margin: 1rem auto;
+}
+
+.video-item img {
+  width: 100%;
+}
+
+.description {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+@media screen and (max-width: 576px) {
+  .video-item {
+    width: 75%;
+  }
+}
+
+@media screen and (max-width: 992px) and (min-width: 576px) {
+  .video-item {
+    width: 45%;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .video-item {
+    width: 30%;
+  }
+}
